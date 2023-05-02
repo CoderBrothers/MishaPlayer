@@ -1,0 +1,91 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="Window.Player.Style" TargetType="Window">
+        <Style.Setters>
+            <Setter Property="MaxWidth" Value="410"/>
+            <Setter Property="MinWidth" Value="410"/>
+            <Setter Property="MaxHeight" Value="570"/>
+            <Setter Property="MinHeight" Value="570"/>
+            <Setter Property="Icon" Value="/music.ico"/>
+            <Setter Property="WindowStyle" Value="None"/>
+            <Setter Property="ResizeMode" Value="NoResize"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="Time.Track.Style" TargetType="TextBlock">
+        <Style.Setters>
+            <Setter Property="Text" Value="00:00:00"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Margin" Value="5,0,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="ProgressBar.Track.Style" TargetType="ProgressBar">
+        <Style.Setters>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="MaxWidth" Value="90"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="UniformGrid.FirstColumn.Style" TargetType="UniformGrid">
+        <Style.Setters>
+            <Setter Property="Grid.Row" Value="3"/>
+            <Setter Property="Rows" Value="1"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="StackPanel.Time.Style" TargetType="StackPanel">
+        <Style.Setters>
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="Button.Track.Style" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="StackPanel.TrackProgress.Style" TargetType="StackPanel">
+        <Style.Setters>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Grid.Row" Value="4"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="Slider.Volume.Style" TargetType="Slider">
+        <Style.Setters>
+            <Setter Property="Value" Value="0"/>
+            <Setter Property="Maximum" Value="100"/>
+            <Setter Property="SelectionStart" Value="0"/>
+            <Setter Property="Width" Value="175"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="IsSelectionRangeEnabled" Value="True"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="Button.Window.Style" TargetType="Button" BasedOn="{StaticResource Button.Track.Style}">
+        <Style.Setters>
+            <Setter Property="Width" Value="35"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="PlayList.Player.Style" TargetType="ListBox">
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="Button.PlayList.Style" TargetType="Button" BasedOn="{StaticResource Button.Track.Style}">
+        <Style.Setters>
+            
+        </Style.Setters>
+    </Style>
+    <Style x:Key="UniformGrid.SecondColumn.Style" TargetType="UniformGrid">
+        <Style.Setters>
+            <Setter Property="Grid.Row" Value="2"/>
+            <Setter Property="Rows" Value="1"/>
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>

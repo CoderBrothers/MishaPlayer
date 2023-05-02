@@ -1,0 +1,98 @@
+﻿<Window x:Class="MishaPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MishaPlayer"
+        mc:Ignorable="d"
+        Style="{StaticResource Window.Player.Style}" MouseDown="Window_MouseDown" Icon="/music.ico">
+    <Window.Background>
+        <ImageBrush ImageSource="/Champions League.jpg" Stretch="Uniform"/>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.45*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.06*"/>
+                <RowDefinition Height="0.15*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Image Source="/music.png" Height="20" Width="33" />
+                <TextBlock Text="Player" Margin="0,2,0,0"/>
+            </StackPanel>
+            <Image Source = "ronaldo.jpg" Stretch="Fill" Margin="0,23,0,0"/>
+            <TextBlock Text="Описание трека:" Grid.Row="1"/>
+            <StackPanel Style="{StaticResource StackPanel.Time.Style}">
+                <TextBlock x:Name="currentTime" Style="{StaticResource Time.Track.Style}"/>
+                <ProgressBar x:Name="trackProgress" Style="{StaticResource ProgressBar.Track.Style}"/>
+                <TextBlock x:Name="trackDuration" Style="{StaticResource Time.Track.Style}"/>
+            </StackPanel>
+            <UniformGrid Style="{StaticResource UniformGrid.FirstColumn.Style}">
+                <Button x:Name="PreviousBtn" Style="{StaticResource Button.Track.Style}" Click="PreviousBtn_Click">
+                    <Image Source="/Rewind.png" />
+                </Button>
+                <Button x:Name="PauseBtn" Style="{StaticResource Button.Track.Style}" Click="PauseBtn_OnClick">
+                    <Image Source="/Pause.png" />
+                </Button>
+                <Button x:Name="PlayBtn" Style="{StaticResource Button.Track.Style}" Click="PlayBtn_OnClick">
+                    <Image Source="/Play.png" />
+                </Button>
+                <Button x:Name="StopBtn" Style="{StaticResource Button.Track.Style}" Click="StopBtn_OnClick">
+                    <Image Source="/Stop.png" />
+                </Button>
+                <Button x:Name="NextBtn" Style="{StaticResource Button.Track.Style}" Click="NextBtn_Click">
+                    <Image Source="/Forward.png" />
+                </Button>
+            </UniformGrid>
+            <StackPanel Style="{StaticResource StackPanel.TrackProgress.Style}">
+                <Slider x:Name="ValueSlider" ValueChanged="Slider_ValueChanged" Style="{StaticResource Slider.Volume.Style}" Maximum="1" SmallChange="0.01" LargeChange="0.1"/>
+                <TextBlock x:Name="VolumeTb" Text="0%"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.05*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="HideBtn" Style="{StaticResource Button.Window.Style}" Click="Hide_Click">
+                    <Image Source="/Hide.png" />
+                </Button>
+                <Button x:Name="ShowBtn" Style="{StaticResource Button.Window.Style}" Click="Show_Click">
+                    <Image Source="/Show.png" />
+                </Button>
+                <Button x:Name="CloseBtn" Style="{StaticResource Button.Window.Style}" Click="Close_Click">
+                    <Image Source="/Close.png" />
+                </Button>
+            </StackPanel>
+            <ListBox x:Name="Playlist" Style="{StaticResource PlayList.Player.Style}" SelectionChanged="Playlist_SelectionChanged"/>
+            <UniformGrid Style="{StaticResource UniformGrid.SecondColumn.Style}">
+                <Button x:Name="AddBtn" Style="{StaticResource Button.PlayList.Style}" Click="AddBtn_Click">
+                    <Image Source="/plus.png" />
+                </Button>
+                <Button x:Name="DeleteBtn" Style="{StaticResource Button.PlayList.Style}" Click="DeleteBtn_Click">
+                    <Image Source="/minus.png" />
+                </Button>
+                <Button x:Name="SaveBtn" Style="{StaticResource Button.PlayList.Style}" Click="SaveBtn_Click">
+                    <Image Source="/Save.png" />
+                </Button>
+                <Button x:Name="ClearBtn" Style="{StaticResource Button.PlayList.Style}" Click="ClearBtn_Click">
+                    <Image Source="/Clear.png" />
+                </Button>
+                <Button x:Name="LoadBtn" Style="{StaticResource Button.PlayList.Style}" Click="LoadBtn_Click">
+                    <Image Source="/Load.png" />
+                </Button>
+                <Button x:Name="RandomBtn" Style="{StaticResource Button.PlayList.Style}" Click="RandomBtn_Click">
+                    <Image Source="/Random.png" />
+                </Button>
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</Window>
