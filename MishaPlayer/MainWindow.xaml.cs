@@ -25,12 +25,47 @@ namespace MishaPlayer
         public MainWindow()
         {
             InitializeComponent();
+            DriveInfo drive = DriveInfo.GetDrives()[0];
+            string path = drive.Name + @"\MishaPlayer\tmp.dat";
+            try
+            {
+                using (FileStream fstream = File.OpenRead(path))
+                {
+                    string line;
+                    StreamReader file = new(path);
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        _paths.Add(line);
+                    }
+                    file.Close();
+                }
+
+                foreach (var item in _paths)
+                {
+                    
+                }
+            }
+            catch (Exception e)
+            {
+            }
+            
         }
         private MediaPlayer _player = new();
         private List<string> _paths = new();
 
         private void Hide_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
-        private void Close_Click(object sender, RoutedEventArgs e) => Close();
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            DriveInfo drive = DriveInfo.GetDrives()[0];
+            string path = drive.Name + @"\MishaPlayer";
+            DirectoryInfo directoryInfo = new(path);
+            if(!directoryInfo.Exists) directoryInfo.Create();
+            string file = drive.Name + @"\MishaPlayer\tmp.dat";
+            File.WriteAllLines(file, _paths);
+            Close();
+        }
+
         private void Show_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Maximized;
         private void Window_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
         private void PreviousBtn_Click(object sender, RoutedEventArgs e)
