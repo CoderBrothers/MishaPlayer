@@ -19,6 +19,7 @@
     <None Remove="music.png" />
     <None Remove="Pause.png" />
     <None Remove="pexels-photo-363109.webp" />
+    <None Remove="Phone wallpers.jpg" />
     <None Remove="Play.png" />
     <None Remove="Plus.png" />
     <None Remove="Random.png" />
@@ -42,6 +43,7 @@
     <Resource Include="music.png" />
     <Resource Include="Pause.png" />
     <Resource Include="pexels-photo-363109.webp" />
+    <Resource Include="Phone wallpers.jpg" />
     <Resource Include="Play.png" />
     <Resource Include="Plus.png" />
     <Resource Include="Random.png" />

@@ -52,6 +52,7 @@
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Grid.Row" Value="4"/>
             <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Margin" Value="5,0,0,0"/>
         </Style.Setters>
     </Style>
     <Style x:Key="Slider.Volume.Style" TargetType="Slider">

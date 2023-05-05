@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Style="{StaticResource Window.Player.Style}" MouseDown="Window_MouseDown" Icon="/music.ico">
     <Window.Background>
-        <ImageBrush ImageSource="/Champions League.jpg" Stretch="Uniform"/>
+        <ImageBrush ImageSource="/Phone wallpers.jpg"/>
     </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
