@@ -9,7 +9,7 @@
     <Window.Background>
         <ImageBrush ImageSource="/Phone wallpers.jpg"/>
     </Window.Background>
-    <Grid>
+    <Grid MouseWheel="Grid_MouseWheel">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -52,7 +52,7 @@
             </UniformGrid>
             <StackPanel Style="{StaticResource StackPanel.TrackProgress.Style}">
                 <Slider x:Name="ValueSlider" ValueChanged="Slider_ValueChanged" Style="{StaticResource Slider.Volume.Style}" Maximum="1" SmallChange="0.01" LargeChange="0.1"/>
-                <TextBlock x:Name="VolumeTb" Text="0%"/>
+                <TextBlock x:Name="VolumeTb"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="1">

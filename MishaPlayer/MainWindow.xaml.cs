@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace MishaPlayer
 {
@@ -24,45 +25,22 @@ namespace MishaPlayer
     {
         public MainWindow()
         {
-            InitializeComponent();
-            DriveInfo drive = DriveInfo.GetDrives()[0];
-            string path = drive.Name + @"\MishaPlayer\tmp.dat";
-            try
-            {
-                using (FileStream fstream = File.OpenRead(path))
-                {
-                    string line;
-                    StreamReader file = new(path);
-                    while ((line = file.ReadLine()) != null)
-                    {
-                        _paths.Add(line);
-                    }
-                    file.Close();
-                }
-
-                foreach (var item in _paths)
-                {
-
-                }
-            }
-            catch (Exception e)
-            {
-            }
-
+            InitializeComponent();          
+            ReadMemory();
+            ValueSlider.Value = 0.5;
+            _timer.Tick += new EventHandler(timer_Tick);
+            _timer.Interval = TimeSpan.FromSeconds(1);
         }
+
+        private void timer_Tick(object? sender, EventArgs e)
+        {
+            
+        }
+
         private MediaPlayer _player = new();
         private List<string> _paths = new();
+        private DispatcherTimer _timer = new();
 
-        private void PlaylistMemory()
-        {
-            DriveInfo drive = DriveInfo.GetDrives()[0];
-            string path = drive.Name + @"\MishaPlayer";
-            DirectoryInfo directoryInfo = new(path);
-            if (!directoryInfo.Exists) directoryInfo.Create();
-            string file = drive.Name + @"\MishaPlayer\tmp.dat";
-            File.WriteAllLines(file, _paths);
-            Close();
-        }
         private void Hide_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         private void Close_Click(object sender, RoutedEventArgs e) => PlaylistMemory();
         private void Show_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Maximized;
@@ -70,13 +48,14 @@ namespace MishaPlayer
         private void PreviousBtn_Click(object sender, RoutedEventArgs e)
         {
             if (Playlist.SelectedIndex > 0) Playlist.SelectedIndex--;
+            else Playlist.SelectedIndex = Playlist.Items.Count-1;
         }
         private void PauseBtn_OnClick(object sender, RoutedEventArgs e) => _player.Pause();
         private void PlayBtn_OnClick(object sender, RoutedEventArgs e) => _player.Play();
         private void StopBtn_OnClick(object sender, RoutedEventArgs e) => _player.Stop();
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Playlist.SelectedIndex < Playlist.Items.Count) Playlist.SelectedIndex++;
+            if (Playlist.SelectedIndex < Playlist.Items.Count-1) Playlist.SelectedIndex++;
             else
             {
                 Playlist.SelectedIndex = 0;
@@ -167,6 +146,39 @@ namespace MishaPlayer
         private void RandomBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void PlaylistMemory()
+        {
+            DriveInfo drive = DriveInfo.GetDrives()[0];
+            string path = drive.Name + @"\MishaPlayer";
+            DirectoryInfo directoryInfo = new(path);
+            if (!directoryInfo.Exists) directoryInfo.Create();
+            string file = drive.Name + @"\MishaPlayer\tmp.dat";
+            File.WriteAllLines(file, _paths);
+            Close();
+        }
+        private void ReadMemory()
+        {
+            DriveInfo drive = DriveInfo.GetDrives()[0];
+            string path = drive.Name + @"\MishaPlayer\tmp.dat";
+            try
+            {
+                using (FileStream fstream = File.OpenRead(path))
+                {
+                    string line;
+                    StreamReader file = new(path);
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        _paths.Add(line);
+                    }
+                    file.Close();
+                }
+                foreach (var item in _paths)
+                {
+                    Playlist.Items.Add(System.IO.Path.GetFileName(item));
+                }
+            }
+            catch (Exception e) { }
         }
     } 
 }
