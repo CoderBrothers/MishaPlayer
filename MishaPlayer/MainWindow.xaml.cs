@@ -43,7 +43,7 @@ namespace MishaPlayer
 
         private void Hide_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         private void Close_Click(object sender, RoutedEventArgs e) => PlaylistMemory();
-        private void Show_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Maximized;
+        private void Show_Click(object sender, RoutedEventArgs e) => WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         private void Window_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
         private void PreviousBtn_Click(object sender, RoutedEventArgs e)
         {
