@@ -34,7 +34,17 @@ namespace MishaPlayer
 
         private void timer_Tick(object? sender, EventArgs e)
         {
-            
+            if (_player.Source != null && _player.NaturalDuration.HasTimeSpan)
+            {
+                trackProgress.Minimum = 0;
+                trackProgress.Maximum = _player.NaturalDuration.TimeSpan.TotalSeconds;
+                trackProgress.Value = _player.Position.TotalSeconds;
+                trackDuration.Text = TimeSpan.FromSeconds(_player.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
+            }
+            if(_player.Position == _player.NaturalDuration)
+            {
+                NextBtn_Click(sender, null);
+            }
         }
 
         private MediaPlayer _player = new();
@@ -69,6 +79,7 @@ namespace MishaPlayer
                 _player.Open(new Uri(_paths[Playlist.SelectedIndex], UriKind.RelativeOrAbsolute));
                 _player.Play();
             }
+            _timer.Start();
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
