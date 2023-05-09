@@ -12,19 +12,19 @@
     <None Remove="Clear.png" />
     <None Remove="Close.png" />
     <None Remove="Forward.png" />
+    <None Remove="Gif.gif" />
     <None Remove="Hide.png" />
     <None Remove="Load.png" />
     <None Remove="Minus.png" />
     <None Remove="music.ico" />
     <None Remove="music.png" />
     <None Remove="Pause.png" />
-    <None Remove="pexels-photo-363109.webp" />
+    <None Remove="Phone wallpers 1.jfif" />
     <None Remove="Phone wallpers.jpg" />
     <None Remove="Play.png" />
     <None Remove="Plus.png" />
     <None Remove="Random.png" />
     <None Remove="Rewind.png" />
-    <None Remove="ronaldo-cristiano4-1.jpg" />
     <None Remove="ronaldo.jpg" />
     <None Remove="Save.png" />
     <None Remove="Show.png" />
@@ -32,23 +32,28 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Champions League.jpg" />
     <Resource Include="Clear.png" />
     <Resource Include="Close.png" />
     <Resource Include="Forward.png" />
+    <Resource Include="Gif.gif" />
     <Resource Include="Hide.png" />
     <Resource Include="Load.png" />
     <Resource Include="Minus.png" />
     <Resource Include="music.ico" />
     <Resource Include="music.png" />
     <Resource Include="Pause.png" />
-    <Resource Include="pexels-photo-363109.webp" />
+    <Resource Include="Phone wallpers 1.jfif" />
     <Resource Include="Phone wallpers.jpg" />
     <Resource Include="Play.png" />
     <Resource Include="Plus.png" />
     <Resource Include="Random.png" />
     <Resource Include="Rewind.png" />
-    <Resource Include="ronaldo-cristiano4-1.jpg" />
     <Resource Include="ronaldo.jpg" />
     <Resource Include="Save.png" />
     <Resource Include="Show.png" />

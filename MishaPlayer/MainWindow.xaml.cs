@@ -48,14 +48,14 @@ namespace MishaPlayer
         private void PreviousBtn_Click(object sender, RoutedEventArgs e)
         {
             if (Playlist.SelectedIndex > 0) Playlist.SelectedIndex--;
-            else Playlist.SelectedIndex = Playlist.Items.Count-1;
+            else Playlist.SelectedIndex = Playlist.Items.Count - 1;
         }
         private void PauseBtn_OnClick(object sender, RoutedEventArgs e) => _player.Pause();
         private void PlayBtn_OnClick(object sender, RoutedEventArgs e) => _player.Play();
         private void StopBtn_OnClick(object sender, RoutedEventArgs e) => _player.Stop();
         private void NextBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (Playlist.SelectedIndex < Playlist.Items.Count-1) Playlist.SelectedIndex++;
+            if (Playlist.SelectedIndex < Playlist.Items.Count - 1) Playlist.SelectedIndex++;
             else
             {
                 Playlist.SelectedIndex = 0;
@@ -145,7 +145,9 @@ namespace MishaPlayer
         }
         private void RandomBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Random random = new Random();
+            Playlist.SelectedIndex = random.Next(Playlist.Items.Count);
+            _player.Play();
         }
         private void PlaylistMemory()
         {

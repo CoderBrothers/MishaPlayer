@@ -1,13 +1,14 @@
 ﻿<Window x:Class="MishaPlayer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MishaPlayer"
         mc:Ignorable="d"
         Style="{StaticResource Window.Player.Style}" MouseDown="Window_MouseDown" Icon="/music.ico">
     <Window.Background>
-        <ImageBrush ImageSource="/Phone wallpers.jpg"/>
+        <ImageBrush ImageSource="/Phone wallpers 1.jfif"/>
     </Window.Background>
     <Grid MouseWheel="Grid_MouseWheel">
         <Grid.ColumnDefinitions>
@@ -26,7 +27,7 @@
                 <Image Source="/music.png" Height="20" Width="33" />
                 <TextBlock Text="Player" Margin="0,2,0,0"/>
             </StackPanel>
-            <Image Source = "ronaldo.jpg" Stretch="Fill" Margin="0,23,0,0"/>
+            <Image gif:ImageBehavior.AnimatedSource="/Gif.gif" Stretch="Fill" Margin="0,23,0,0"/>
             <TextBlock Text="Описание трека:" Grid.Row="1"/>
             <StackPanel Style="{StaticResource StackPanel.Time.Style}">
                 <TextBlock x:Name="currentTime" Style="{StaticResource Time.Track.Style}"/>
@@ -50,8 +51,8 @@
                     <Image Source="/Forward.png" />
                 </Button>
             </UniformGrid>
-            <StackPanel Style="{StaticResource StackPanel.TrackProgress.Style}">
-                <Slider x:Name="ValueSlider" ValueChanged="Slider_ValueChanged" Style="{StaticResource Slider.Volume.Style}" Maximum="1" SmallChange="0.01" LargeChange="0.1"/>
+            <StackPanel Style="{StaticResource StackPanel.Volume.Style}">
+                <Slider x:Name="ValueSlider" ValueChanged="Slider_ValueChanged" Style="{StaticResource Slider.Volume.Style}"/>
                 <TextBlock x:Name="VolumeTb"/>
             </StackPanel>
         </Grid>
@@ -72,7 +73,7 @@
                     <Image Source="/Close.png" />
                 </Button>
             </StackPanel>
-            <ListBox x:Name="Playlist" Style="{StaticResource PlayList.Player.Style}" SelectionChanged="Playlist_SelectionChanged"/>
+            <ListBox x:Name="Playlist" Style="{StaticResource PlayList.Player.Style}" SelectionChanged="Playlist_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
             <UniformGrid Style="{StaticResource UniformGrid.SecondColumn.Style}">
                 <Button x:Name="AddBtn" Style="{StaticResource Button.PlayList.Style}" Click="AddBtn_Click">
                     <Image Source="/plus.png" />
