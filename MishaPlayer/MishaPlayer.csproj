@@ -17,7 +17,6 @@
     <None Remove="Load.png" />
     <None Remove="Minus.png" />
     <None Remove="music.ico" />
-    <None Remove="music.png" />
     <None Remove="Pause.png" />
     <None Remove="Phone wallpers 1.jfif" />
     <None Remove="Phone wallpers.jpg" />
@@ -25,7 +24,6 @@
     <None Remove="Plus.png" />
     <None Remove="Random.png" />
     <None Remove="Rewind.png" />
-    <None Remove="ronaldo.jpg" />
     <None Remove="Save.png" />
     <None Remove="Show.png" />
     <None Remove="Stop.png" />
@@ -46,7 +44,6 @@
     <Resource Include="Load.png" />
     <Resource Include="Minus.png" />
     <Resource Include="music.ico" />
-    <Resource Include="music.png" />
     <Resource Include="Pause.png" />
     <Resource Include="Phone wallpers 1.jfif" />
     <Resource Include="Phone wallpers.jpg" />
@@ -54,7 +51,6 @@
     <Resource Include="Plus.png" />
     <Resource Include="Random.png" />
     <Resource Include="Rewind.png" />
-    <Resource Include="ronaldo.jpg" />
     <Resource Include="Save.png" />
     <Resource Include="Show.png" />
     <Resource Include="Stop.png" />

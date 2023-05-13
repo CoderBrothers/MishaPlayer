@@ -41,7 +41,7 @@ namespace MishaPlayer
                 trackProgress.Value = _player.Position.TotalSeconds;
                 trackDuration.Text = TimeSpan.FromSeconds(_player.NaturalDuration.TimeSpan.TotalSeconds).ToString(@"hh\:mm\:ss");
             }
-            if(_player.Position == _player.NaturalDuration)
+            if (_player.Position == _player.NaturalDuration)
             {
                 NextBtn_Click(sender, null);
             }
@@ -51,9 +51,20 @@ namespace MishaPlayer
         private List<string> _paths = new();
         private DispatcherTimer _timer = new();
 
+        private void ReadMp3()
+        {
+            var tfile = TagLib.File.Create("kkk");
+            string title = tfile.Tag.Title;
+            TimeSpan duration = tfile.Properties.Duration;
+            Console.WriteLine("Title: {0}, duration: {1}", title, duration);
+
+            // change title in the file
+            tfile.Tag.Title = "my new title";
+            tfile.Save();
+        }
         private void Hide_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Minimized;
         private void Close_Click(object sender, RoutedEventArgs e) => PlaylistMemory();
-        private void Show_Click(object sender, RoutedEventArgs e) => WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        private void Show_Click(object sender, RoutedEventArgs e) => WindowState = WindowState.Maximized;
         private void Window_MouseDown(object sender, MouseButtonEventArgs e) => DragMove();
         private void PreviousBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -80,6 +91,7 @@ namespace MishaPlayer
                 _player.Play();
             }
             _timer.Start();
+            ReadMp3();
         }
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {

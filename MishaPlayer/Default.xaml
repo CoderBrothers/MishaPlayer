@@ -77,6 +77,7 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Grid.Row" Value="1"/>
             <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
         </Style.Setters>
     </Style>
     <Style x:Key="Button.PlayList.Style" TargetType="Button" BasedOn="{StaticResource Button.Track.Style}">

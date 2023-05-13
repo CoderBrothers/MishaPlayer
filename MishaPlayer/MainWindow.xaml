@@ -24,7 +24,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Image Source="/music.png" Height="20" Width="33" />
+                <Image Source="/music.png" Width="20" />
                 <TextBlock Text="Player" Margin="0,2,0,0"/>
             </StackPanel>
             <Image gif:ImageBehavior.AnimatedSource="/Gif.gif" Stretch="Fill" Margin="0,23,0,0"/>
@@ -73,7 +73,7 @@
                     <Image Source="/Close.png" />
                 </Button>
             </StackPanel>
-            <ListBox x:Name="Playlist" Style="{StaticResource PlayList.Player.Style}" SelectionChanged="Playlist_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+            <ListBox x:Name="Playlist" Style="{StaticResource PlayList.Player.Style}" SelectionChanged="Playlist_SelectionChanged"/>
             <UniformGrid Style="{StaticResource UniformGrid.SecondColumn.Style}">
                 <Button x:Name="AddBtn" Style="{StaticResource Button.PlayList.Style}" Click="AddBtn_Click">
                     <Image Source="/plus.png" />
